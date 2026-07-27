@@ -12,6 +12,7 @@ datasets:
 # TARGET-OS dataset
   target_os:
     source_type: "UCSC_Xena"
+    site_link: "https://xenabrowser.net/datapages/?dataset=TARGET-OS.survival.tsv&host=https%3A%2F%2Fgdc.xenahubs.net&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443"
     link: "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TARGET-OS.survival.tsv.gz"
     phenotypes: "TARGET-OS.clinical.tsv.gz"
     counts: "TARGET-OS.clinical.tsv.gz"
