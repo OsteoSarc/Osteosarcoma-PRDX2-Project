@@ -1,0 +1,29 @@
+# Store URLs, API endpoints, and file names# config.yaml
+project_name: "osteosarcoma_RNAseq"
+
+# Directory Structure (Python will use this to ensure folders exist)
+directories:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  logs: "logs"
+
+# Primary Data Sources
+datasets:
+# TARGET-OS dataset
+  target_os:
+    source_type: "UCSC_Xena"
+    link: "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TARGET-OS.survival.tsv.gz"
+    phenotypes: "TARGET-OS.clinical.tsv.gz"
+    counts: "TARGET-OS.clinical.tsv.gz"
+
+# GSE33382 dataset
+  gse33382:
+    source_type: "GEO"
+    accession_num: "GSE33382"
+    link: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE33382"
+
+# GSE87437 dataset
+  gse87437:
+    source_type: "GEO"
+    accession_num: "GSE87437"
+    link: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE87437"
