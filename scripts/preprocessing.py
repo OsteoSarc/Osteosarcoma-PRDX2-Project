@@ -24,6 +24,7 @@ def parse_series_matrix(path):
     meta_rows = {}
     table_lines = []
     in_table = False
+
     with gzip.open(path, "rt") as f:
         for line in f:
             if line.startswith("!series_matrix_table_begin"):
@@ -41,7 +42,7 @@ def parse_series_matrix(path):
                 field = next((v.split(":")[0].strip() for v in vals if ":" in v), f"ch1_{len(meta_rows)}")
                 meta_rows[field] = [v.split(":", 1)[1].strip() if ":" in v else "" for v in vals]
  
-    expr_df = pd.read_csv(StringIO("".join(table_lines)), sep="\t", index_col = 0)
+    expr_df = pd.read_csv(StringIO("".join(table_lines)), sep ="\t", index_col = 0)
     expr_df.columns = [c.strip('"') for c in expr_df.columns]
     expr_df.index = [str(i).strip('"') for i in expr_df.index]
  
@@ -63,7 +64,7 @@ def collapse_to_gene_symbol(expr_df, id_to_symbol, min_coverage = 0.5):
     
     expr_df = expr_df.copy()
     expr_df["gene_symbol"] = expr_df.index.map(id_to_symbol)
-    expr_df = expr_df.dropna(subset=["gene_symbol"])
+    expr_df = expr_df.dropna(subset = ["gene_symbol"])
     collapsed = expr_df.groupby("gene_symbol").mean(numeric_only = True)
     
     return collapsed.T  # samples x genes
@@ -112,7 +113,7 @@ def preprocess_gse33382():
     log("Running preprocessing on GSE33382 dataset...")
 
     expr, meta = parse_series_matrix(f"{RAW}/GSE33382_series_matrix.txt.gz")
-    expr = expr.apply(pd.to_numeric, errors="coerce")  # already log2-scale so no transform needed
+    expr = expr.apply(pd.to_numeric, errors = "coerce")  # already log2-scale so no transform needed
  
     huvos_col = [c for c in meta.columns if "huvos" in c.lower()][0]
     huvos = meta[huvos_col]
@@ -124,6 +125,7 @@ def preprocess_gse33382():
     # GSE33382 ran on platform GPL10295 but probe IDs aren't standard ILMN_ format so fetching GPL10295's annotation table instead
     gpl = GEOparse.get_GEO(geo = "GPL10295", destdir = "data/raw")
     symbol_col = [c for c in gpl.table.columns if "symbol" in c.lower()]
+
     if not symbol_col:
         raise RuntimeError("GPL10295 annotation table has no gene symbol column - inspect gpl.table.columns")
     id_to_symbol = gpl.table.set_index(gpl.table.columns[0])[symbol_col[0]].to_dict()
