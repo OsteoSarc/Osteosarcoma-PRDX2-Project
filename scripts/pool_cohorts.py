@@ -1,5 +1,7 @@
 import pandas as pd
 
+print("Pooling cohorts together...")
+
 # Read in preprocessed csv files
 target = pd.read_csv("data/processed/target_os_processed.csv", index_col = 0)
 gse874 = pd.read_csv("data/processed/gse87437_processed.csv", index_col = 0)
