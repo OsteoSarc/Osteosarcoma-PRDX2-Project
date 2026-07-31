@@ -28,5 +28,5 @@ print(f"\nSamples per cohort: {pooled_df["cohort"].value_counts()}")
 print(f"\nLabel Distribution: {pooled_df["label"].value_counts()}")
 assert pooled_df.isna().sum().sum() == 0, "unexpected NaNs after pooling"
 
-pooled_df.to_csv("data/processed/pooled_raw.csv")
+pooled_df.to_csv("data/processed/pooled_cohorts.csv")
 
