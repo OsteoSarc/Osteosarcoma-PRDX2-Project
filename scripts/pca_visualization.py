@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-print("Performing PCA...")
+print("\nPerforming PCA...")
 
 df = pd.read_csv("data/processed/pooled_corrected.csv", index_col = 0)
 

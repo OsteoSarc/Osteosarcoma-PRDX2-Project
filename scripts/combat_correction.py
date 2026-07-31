@@ -1,7 +1,7 @@
 import pandas as pd
 from combat.pycombat import pycombat
 
-print("Running ComBat batch correction...")
+print("\nRunning ComBat batch correction...")
 
 # Load pooled matrix from pool_cohorts.py
 df = pd.read_csv("data/processed/pooled_cohorts.csv", index_col = 0)
