@@ -44,5 +44,5 @@ axes[1].set_ylabel("PC2")
 axes[1].legend()
 
 plt.tight_layout()
-plt.savefig("data/processed/pca_sanity_check.png", dpi = 300)
-print("Saved plot to pca_sanity_check.png")
+plt.savefig("data/processed/pca_visualization.png", dpi = 300)
+print("Saved plot to pca_visualization.png")
