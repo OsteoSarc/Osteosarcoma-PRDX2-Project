@@ -41,4 +41,4 @@ gene_panels:
   pmc10059037:
     citation: "PMC10059037"
     genes: ["TOP2A", "DHFR", "BCL2L1", "CASP3", "FASLG", "GSTM3", "SOD1", "ABCC1", "ABCC4", 
-            "ABCC5", "ABCC6", "ABCC10", "ABCC11", "ABCG2", "RALBP1", "SLC22A1", "MSH2"]
+            "ABCC5", "ABCC6", "ABCC10", "ABCC11", "ABCG2", "RALBP1", "SLC22A1", "MSH2", "GGH"]
